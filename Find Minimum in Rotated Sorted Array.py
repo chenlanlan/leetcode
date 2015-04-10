@@ -1,9 +1,8 @@
 #!/user/bin/python
 
 def findMin(self, num):
-    n = len(num)
     left = 0
-    right = n - 1
+    right = len(num) - 1
     while left < right:
         if num[left] < num[right]:
             return num[left]

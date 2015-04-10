@@ -26,7 +26,7 @@ def getIntersectionNode(self, headA, headB):
         while count > 0:
             node1 = node1.next
             count -= 1
-        while node1 != node2 and node1 != None and node2 != None:
+        while node1 != None and node2 != None and node1 != node2:
             node1 = node1.next
             node2 = node2.next
         return node1

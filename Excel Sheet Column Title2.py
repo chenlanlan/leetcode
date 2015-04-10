@@ -13,6 +13,7 @@ def convertToTitle(self, num):
         num = int(num) // 26
     s.reverse()
     return "".join(s)
+
 self = 0
 num = '29555'
 print (convertToTitle(self, num))

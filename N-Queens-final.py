@@ -36,9 +36,7 @@ def totalNQueens(self, n):
                 board[currQueenNum] = i
                 solve(self, n, currQueenNum + 1, board)
     
-    board = []
-    for i in range(n):
-        board.append(-1)
+    board = [-1 for i in range(n)]
     solve(self, n, 0, board)
     return final
      

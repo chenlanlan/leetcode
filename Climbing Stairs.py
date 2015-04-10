@@ -3,9 +3,7 @@
 def climbStairs(self, n):
     if n == 1:
         return 1
-    F = []
-    for i in range(n):
-        F.append(0)
+    F = [o for i in range(n)]
     F[0] = 1
     F[1] = 2
     for i in range(2, n):

@@ -6,6 +6,7 @@ def titleToNumber(self, s):
     for i in range (0, length):
        number = number + (ord(s[i]) - 64) * 26 ** (length - i -1)
     return number
+
 self = 0
 s = 'AQRS'
 print (titleToNumber(self, s))

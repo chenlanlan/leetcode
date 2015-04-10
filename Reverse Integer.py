@@ -15,7 +15,7 @@ def reverse(self, x):
         return -int(xNew_str)
 
 self = 0
-x = 1534236469
+x = 234
 print (reverse(self, x))
         
 

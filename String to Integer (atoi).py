@@ -3,29 +3,10 @@
 def atoi(self, str):
     num_str = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     def convert(s):
-        if s == num_str[0]:
-            num = 0
-        elif s == num_str[1]:
-            num = 1
-        elif s == num_str[2]:
-            num = 2
-        elif s == num_str[3]:
-            num = 3
-        elif s == num_str[4]:
-            num = 4
-        elif s == num_str[5]:
-            num = 5
-        elif s == num_str[6]:
-            num = 6
-        elif s == num_str[7]:
-            num = 7
-        elif s == num_str[8]:
-            num = 8
-        elif s == num_str[9]:
-            num = 9
+        if ord('0') <= ord(s) and ord(s) <= ord('9'):
+            return ord(s) - 48
         else:
             return -1
-        return num
     length = len(str)
     num = 0
     i = 0

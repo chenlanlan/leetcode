@@ -6,7 +6,7 @@ def compareVersion(self, version1, version2):
     len1 = len(v1)
     len2 = len(v2)
     len_max = max(len1, len2)
-    for i in range (0, len_max):
+    for i in range (len_max):
         v1_taken = 0
         if i < len1:
             v1_taken = int(v1[i])
