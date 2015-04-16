@@ -3,14 +3,14 @@
 def maxProfit2(self, prices):
     if len(prices) == 0:
         return 0
-    min = prices[0]
+    lowest = prices[0]
     profit = 0
     for i in range(1, len(prices)):
         if prices[i] >= prices[i - 1]:
             continue
-        profit += prices[i - 1] - min
-        min = prices[i]
-    profit += prices[len(prices) - 1] - min
+        profit += prices[i - 1] - lowest
+        lowest = prices[i]
+    profit += prices[len(prices) - 1] - lowest
     return profit
 
 self = 0

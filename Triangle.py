@@ -11,7 +11,7 @@ def minimumTotal(self, triangle):
             elif j == i:
                 sum[i][j] = sum[i - 1][j - 1] + triangle[i][j]
             else:
-                sum[i][j] = min(sum[i-1][j-1], sum[i - 1][j]) + triangle[i][j]
+                sum[i][j] = min(sum[i - 1][j - 1], sum[i - 1][j]) + triangle[i][j]
             if sum[i][j] < ans:
                 ans = sum[i][j]
     return ans
