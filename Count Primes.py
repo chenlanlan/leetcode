@@ -43,8 +43,8 @@ class Solution:
                     ans.append(i)
             return len(ans)
 
-    def countPrimes3(self, n):
-        if n == 1 or n == 2:
+    def countPrimes(self, n):
+        if n <= 2:
             return 0
         ans = [i for i in range(0, n)]
         res = len(ans) - 2
@@ -53,12 +53,12 @@ class Solution:
             if ans[j] != 0:
                 if j * j > n:
                     break
-                k = 2
-                while k * j < n:
-                    if ans[k * j] != 0:
-                        ans[k * j] = 0
+                current = 2 * j
+                while current < n:
+                    if ans[current] != 0:
+                        ans[current] = 0
                         res -= 1
-                    k +=1
+                    current += j
             j += 1
         return res        
         
