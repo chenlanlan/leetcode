@@ -26,7 +26,7 @@ class Solution:
     def isValidBST(self, root): #中序遍历法
         if root == None:
             return True
-        if root.left == None and root.left == None:
+        if root.left == None and root.right == None:
             return True
         List = []
         def inOrderTraversal(root):
