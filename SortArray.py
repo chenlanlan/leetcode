@@ -1,4 +1,4 @@
-#!/user/bin/python
+#!/usr/bin/python
 
 def sortedArray(Array):
     length = len(Array)

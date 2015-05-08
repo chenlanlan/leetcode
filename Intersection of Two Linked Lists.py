@@ -1,4 +1,4 @@
-#!/user/bin/python
+#!/usr/bin/python
 
 def getIntersectionNode(self, headA, headB):
     if headA == None or headB == None:

@@ -10,7 +10,7 @@
 class Solution:
     # @param {TreeNode} root
     # @return {integer[][]}
-    def levelOrder(self, root):
+    def zigzagLevelOrder(self, root):
         res = []
         if root == None:
             return res
@@ -19,6 +19,7 @@ class Solution:
         array = []
         curLevel = 1
         nextLevel = 0
+        left = True
         while queue != []:
             cur = queue[0]
             del queue[0]
@@ -32,6 +33,9 @@ class Solution:
                 nextLevel += 1
 
             if curLevel == 0:
+                if left == False:
+                    array.reverse()
+                left = not left
                 res.append(array)
                 array = []
                 curLevel = nextLevel

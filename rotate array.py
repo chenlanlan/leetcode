@@ -1,4 +1,4 @@
-#!/user/bin/python
+#!/usr/bin/python
 
 class Solution:
     # @param nums, a list of integer

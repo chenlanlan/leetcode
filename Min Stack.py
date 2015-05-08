@@ -1,4 +1,4 @@
-#!/user/bin/python
+#!/usr/bin/python
 
 class MinStack:
     def __init__(self):

@@ -10,7 +10,7 @@
 class Solution:
     # @param {TreeNode} root
     # @return {integer[][]}
-    def levelOrder(self, root):
+    def levelOrderBottom(self, root):
         res = []
         if root == None:
             return res
@@ -36,5 +36,6 @@ class Solution:
                 array = []
                 curLevel = nextLevel
                 nextLevel = 0
+        res.reverse()
         return res
                 

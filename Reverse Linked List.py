@@ -1,4 +1,4 @@
-#!/user/bin/python
+#!/usr/bin/python
 
 # Definition for singly-linked list.
 class ListNode:

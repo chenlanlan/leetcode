@@ -1,4 +1,4 @@
-#!/user/bin/python
+#!/usr/bin/pythons
 
 # Definition for a  binary tree node
 # class TreeNode:
