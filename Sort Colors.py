@@ -11,12 +11,16 @@ class Solution:
                 zeroCount += 1
             elif nums[i] == 1:
                 oneCount += 1
+        nums = [0] * zeroCount + [1] * oneCount +  [2] * (len(nums) - oneCount - zeroCount)
+        return nums
+        '''
         for i in range(0, zeroCount):
             nums[i] = 0
         for i in range(zeroCount, zeroCount + oneCount):
             nums[i] = 1
         for i in range(zeroCount + oneCount, len(nums)):
             nums[i] = 2
+            '''
 
     def sortColors2(self, nums):
         zeroPointer = -1
@@ -41,5 +45,5 @@ class Solution:
         return nums
 
 test = Solution()
-print(test.sortColors2([2, 1, 0, 2, 0]))
+print(test.sortColors([1, 0]))
                 
