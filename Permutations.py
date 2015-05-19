@@ -8,13 +8,9 @@ class Solution:
             result.append(nums[:])
             return
         for j in range(i, len(nums)):
-            temp = nums[i]
-            nums[i] = nums[j]
-            nums[j] = temp
+            nums[i], nums[j]  = nums[j], nums[i]
             self.dfs(i + 1, nums , result)
-            temp = nums[i]
-            nums[i] = nums[j]
-            nums[j] = temp
+            nums[i], nums[j]  = nums[j], nums[i]
             
         
     def permute(self, nums):

@@ -20,13 +20,9 @@ class Solution:
         for j in range(i, len(nums)):
             if self.swap(nums, i, j) == False:
                 continue
-            temp = nums[i]
-            nums[i] = nums[j]
-            nums[j] = temp
+            nums[i], nums[j]  = nums[j], nums[i]
             self.dfs(i + 1, nums , result)
-            temp = nums[i]
-            nums[i] = nums[j]
-            nums[j] = temp
+            nums[i], nums[j]  = nums[j], nums[i]
             
     def permuteUnique(self, nums):
         result = []
