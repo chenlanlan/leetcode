@@ -14,9 +14,7 @@ class Solution:
             while left < right:
                 sum = nums[i] + nums[left] + nums[right]
                 if sum == 0:
-                    temp.append(nums[i])
-                    temp.append(nums[left])
-                    temp.append(nums[right])
+                    temp = [nums[i], nums[left], nums[right]]
                     if not temp in result:
                         result.append(temp)
                     right -= 1
@@ -26,7 +24,6 @@ class Solution:
                     right -= 1
                 else:
                     left += 1
-                print(result, i, left, right)
         return result
 
 test = Solution()
