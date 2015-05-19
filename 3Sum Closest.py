@@ -7,16 +7,13 @@ class Solution:
     def threeSumClosest(self, nums, target):
         nums.sort()
         n = len(nums)
-        first = True
+        result = nums[0] + nums[1] + nums[n - 1]
         for i in range(n):
             left = i + 1
             right = n - 1
             while left < right:
                 sum = nums[i] + nums[left] + nums[right]
-                if first:
-                    result = sum
-                    first = False
-                elif abs(sum - target) < abs(result - target):
+                if abs(sum - target) < abs(result - target):
                     result = sum
                 if result == target:
                     return result
