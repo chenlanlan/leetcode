@@ -9,8 +9,8 @@ class Solution:
         def traversal(root):
             if root == None:
                 return
+            self.postorderTraversal(root.left)
+            self.postorderTraversal(root.right)
             self.res.append(root.val)
-            self.preorderTraversal(root.left)
-            self.preorderTraversal(root.right)
         traversal(root)
         return self.res
