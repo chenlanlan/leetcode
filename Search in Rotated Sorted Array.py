@@ -55,6 +55,7 @@ class Solution:
                     right = mid - 1
                 else:
                     left = mid + 1
+        return -1
 
 test = Solution()
 print(test.search2([4, 5, 6, 7, 8, 1, 2, 3], 6))
