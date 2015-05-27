@@ -17,4 +17,4 @@ class Solution:
         return d[n - 1]
 
 x = Solution()
-print(x.rob([2,1]))
+print(x.rob([3,5,6,1,7,14]))
