@@ -2,23 +2,19 @@
 
 class Solution:
     # @return a list of lists of string
-    def totalNQueens(self, n):
-        # output frame
-        global res
-        final = []
-        def solve(self, n, currQueenNum, board):
+    def __init__(self):
+        self.final = []
+        
+    def solve(self, n, currQueenNum, board):
             if currQueenNum == n:
-                res = []
-                for i in range(n):
-                    a = []
-                    for j in range (n):
-                        a.append('.')
-                    res.append(a)
+                a = ['.' for i in range(n)]
+                res = [a[:] for i in range(n)]
                 for l in range(n):
                     res[l][board[l]] = 'Q'
                     res[l] = ''.join(res[l])
-                final.append(res[:])
+                self.final.append(res[:])
                 return
+            
             for i in range(n):
                 valid = True
                 for k in range(currQueenNum):
@@ -32,10 +28,14 @@ class Solution:
                         break
                 if valid:
                     board[currQueenNum] = i
-                    solve(self, n, currQueenNum + 1, board)    
+                    self.solve(n, currQueenNum + 1, board)
+                    
+    def totalNQueens(self, n):
+        # output frame
+        global res    
         board = [-1 for i in range(n)]
-        solve(self, n, 0, board)
-        return final
+        self.solve(n, 0, board)
+        return self.final
     
 x = Solution()
 print(x.totalNQueens(4))
