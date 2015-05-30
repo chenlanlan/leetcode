@@ -9,21 +9,21 @@ class Solution:
         stack = []
         def isOpenrand(s):
             return s == '+' or s == '-' or s == '*' or s == '/'
-        for i in range(len(tokens)):
-            if isOpenrand(tokens[i]) == False:
-                stack.append(int(tokens[i]))
+        for token in tokens:
+            if isOpenrand(token) == False:
+                stack.append(int(token))
                 continue
             if len(stack) < 2:
                 return 0
             num2 = stack.pop()
             num1 = stack.pop()
-            if tokens[i] == '+':
+            if token == '+':
                 stack.append(num1 + num2)
-            elif tokens[i] == '-':
+            elif token == '-':
                 stack.append(num1 - num2)
-            elif tokens[i] == '*':
+            elif token == '*':
                 stack.append(num1 * num2)
-            elif tokens[i] == '/':
+            elif token == '/':
                 stack.append(int(num1 / num2))
         return stack.pop()
 
