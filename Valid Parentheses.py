@@ -4,13 +4,13 @@ class Solution:
     # @param {string} s
     # @return {boolean}
     def isMatch(self, a, b):
-            if a == '(':
-                return b ==')'
-            elif a == '{' :
-                return b == '}'
-            elif a == '[':
-                return b == ']'
-            return False
+        if a == '(':
+            return b ==')'
+        elif a == '{' :
+            return b == '}'
+        elif a == '[':
+            return b == ']'
+        return False
         
     def isValid(self, s):
         stack = []
