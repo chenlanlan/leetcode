@@ -17,6 +17,6 @@ class Solution:
         return "".join(s)
 
 x = Solution()
-print (x.convertToTitle(29955))
+print (x.convertToTitle(52))
 
 
