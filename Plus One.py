@@ -4,42 +4,20 @@ class Solution:
     # @param digits, a list of integer digits
     # @return a list of integer digits
     def plusOne(self, digits):
-        size = len(digits)
-        if digits[size - 1] < 9:
-            digits[size - 1] = digits[size - 1] + 1
-            return digits
-        if size == 1 and digits[0] == 9:
-            digits[0] = 0
-            digits.insert(0,1)
-            return digits
-        for i in range(size - 1, -1, -1):
-            digits[i] = 0
-            digits[i - 1] += 1
-            if digits[i - 1] <= 9:
+        ans = digits
+        is_carry = True
+        for i in range(len(ans) - 1, -1, -1):
+            if ans[i] == 9:
+                ans[i] = 0
+            else:
+                ans[i] += 1
+                is_carry = False
                 break
-            if digits[0] == 10:
-                digits[0] = 0
-                digits.insert(0,1)
-                break
-        return digits
+        if is_carry:
+            ans.insert(0, 1)
+        return ans
         
 x = Solution()
 print(x.plusOne([9]))
 
-class Solution:
-    # @param digits, a list of integer digits
-    # @return a list of integer digits
-    def plusOne2(self, digits):
-        size = len(digits)
-        carry = True
-        for i in range(size - 1, -1, -1):
-            if digits[i] == 9:
-                digits[i] = 0
-            else:
-                digits[i] += 1
-                carry = False
-                break
-        if carry == True:
-            digits.insert(0, 1)
-        return digits
 

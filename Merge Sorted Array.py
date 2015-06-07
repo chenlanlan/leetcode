@@ -23,6 +23,6 @@ class Solution:
         return A
 
 x = Solution()
-print(x.merge([2, 7, 9, 13, 17], 5, [5], 1))
+print(x.merge([0], 0, [1], 1))
 
 
