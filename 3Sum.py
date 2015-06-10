@@ -5,25 +5,22 @@ class Solution:
     # @return {integer[][]}
     def threeSum(self, nums):
         nums.sort()
-        n = len(nums)
         result = []
-        temp = []
-        for i in range(n):
+        for i in range(len(nums)):
             left = i + 1
-            right = n - 1
+            right = len(nums) - 1
             while left < right:
                 sum = nums[i] + nums[left] + nums[right]
                 if sum == 0:
                     temp = [nums[i], nums[left], nums[right]]
                     if not temp in result:
                         result.append(temp)
-                    right -= 1
                     left += 1
-                    temp = []
-                elif sum > 0:
                     right -= 1
+                elif sum < 0:
+                    left += 1
                 else:
-                    left += 1
+                    right -= 1
         return result
 
 test = Solution()
