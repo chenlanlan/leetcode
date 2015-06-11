@@ -10,26 +10,24 @@ class Solution:
     # @param {ListNode} head
     # @return {ListNode}
     def swapPairs(self, head):
+        pre = root = ListNode(0)
+        pre.next = head
         if head == None or head.next == None:
             return head
-        pre = ListNode(0)
-        pre.next = head
-        fast, slow = head.next, head
-        head = fast
-        while fast != None:
-            p = fast
-            q = slow
-            temp = p.next
-            p.next = q
-            q.next = temp
-            pre.next = p
-            if slow.next != None:
-                fast = q.next.next
-                slow = p.next.next
+        fast = head.next
+        slow = head
+        while fast:
+            next = fast.next
+            fast.next = slow
+            slow.next = next
+            pre.next = fast
+            pre = slow
+            if next:
+                fast = next.next
+                slow = next
             else:
                 break
-            pre = q
-        return head
+        return root.next
 
 class MyClass(object):
     @staticmethod

@@ -9,6 +9,18 @@
 class Solution:
     # @param {ListNode[]} lists
     # @return {ListNode}
+    def mergeLists(self, A, B):
+        node = root = ListNode(0)
+        while A or B:
+            if not B or A and A.val < B.val:
+                node.next = ListNode(A.val)
+                A = A.next
+            else:
+                node.next = ListNode(B.val)
+                B = B.next
+            node = node.next
+        return root.next
+    
     def mergeKLists(self, lists):
         if len(lists) == 0:
             return None
@@ -17,15 +29,5 @@ class Solution:
         mid = len(lists) // 2
         left = self.mergeKLists(lists[: mid])
         right = self.mergeKLists(lists[mid :])
-        dummy = ListNode(0)
-        cur = dummy
-        while left or right:
-            if right == None or (left and left.val <= right.val):
-                cur.next = left
-                left = left.next
-            else:
-                cur.next = right
-                right = right.next
-            cur = cur.next
-        return dummy.next
+        return self.mergeLists(left, right)
                 

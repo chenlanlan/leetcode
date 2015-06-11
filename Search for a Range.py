@@ -5,29 +5,30 @@ class Solution:
     # @param {integer} target
     # @return {integer[]}
     def searchRange(self, nums, target):
-        left, right = 0, len(nums) - 1
-        ans = []
+        n = len(nums)
+        left = 0
+        right = n - 1
+        range = [-1, -1]
         while left <= right:
             mid = (left + right) // 2
-            if nums[mid] == target and (mid == 0 or nums[mid] != nums[mid - 1]):
-                ans.append(mid)
-                break
-            elif nums[mid] < target:
-                left = mid + 1
-            else:
-                right = mid - 1
-        if ans == []:
-            return [-1, -1]
-        left, right = ans[0], len(nums) - 1
-        while left <= right:
-            mid = (left + right) // 2
-            if nums[mid] == target and (mid == len(nums) - 1 or nums[mid] != nums[mid + 1]):
-                ans.append(mid)
-                return ans
-            elif nums[mid] > target:
+            if nums[mid] >= target:
                 right = mid - 1
             else:
                 left = mid + 1
+        if left > n - 1 or nums[left] != target:
+            return range
+        else:
+            range[0] = left
+        left = 0
+        right = n - 1
+        while left <= right:
+            mid = (left + right) // 2
+            if nums[mid] <= target:
+                left = mid + 1
+            else:
+                right = mid - 1
+        range[1] = right
+        return range
 
 test = Solution()
 print(test.searchRange([1], 1))

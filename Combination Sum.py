@@ -6,23 +6,27 @@ class Solution:
     # @return {integer[][]}
     def __init__(self):
         self.result = []
+
+    def combine(self, candidates, target, index, sum, temp):
+        if sum > target:
+            return 
+        if sum == target:
+            self.result.append(temp[:])
+            return
+        else:
+            for i in range(index, len(candidates)):
+                sum += candidates[i]
+                temp.append(candidates[i])
+                self.combine(candidates, target, i, sum, temp)
+                sum -= candidates[i]
+                temp.pop()
+            return
+
     def combinationSum(self, candidates, target):
-        solution = []
+        n = len(candidates)
+        sum = 0
         candidates.sort()
-        def getCombination(candidates, target, sum ,level):
-            if sum > target:
-                return
-            if sum == target:
-                self.result.append(solution[:])
-                return
-            else:
-                for i in range(level, len(candidates)):
-                    sum += candidates[i]
-                    solution.append(candidates[i])
-                    getCombination(candidates, target, sum, i)
-                    solution.pop()
-                    sum -= candidates[i]
-        getCombination(candidates, target, 0, 0)
+        self.combine(candidates, target, 0, sum, [])
         return self.result
 
 test = Solution()
