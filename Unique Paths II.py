@@ -6,8 +6,7 @@ class Solution:
     def uniquePathsWithObstacles(self, obstacleGrid):
         n = len(obstacleGrid)
         m = len(obstacleGrid[0])
-        row = [0 for i in range(m)]
-        ans = [row[:] for j in range(n)]
+        ans = [[0] * m for i in range(n)]
         if obstacleGrid[0][0] == 1:
             ans[0][0] = 0
             return 0
