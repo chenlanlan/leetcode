@@ -6,8 +6,7 @@ class Solution:
     def sub(self, nums, idx, n):
         result = []
         if idx == n:
-            temp = []
-            result.append(temp)
+            result.append([])
         else:
             vec = self.sub(nums, idx + 1, n)
             a = nums[idx]
@@ -18,9 +17,8 @@ class Solution:
                 v.sort()
                 result.append(v[:])
         return result
-        
+
     def subsets(self, nums):
-        result = []
         return self.sub(nums, 0, len(nums))
 
 test = Solution()
