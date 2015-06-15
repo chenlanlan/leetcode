@@ -10,16 +10,16 @@
 class Solution:
     # @param {integer[]} nums
     # @return {TreeNode}
+    def tree(self, nums, left, right):
+        if left > right:
+            return None
+        mid = (left + right) // 2
+        left = self.tree(nums, left, mid - 1)
+        right = self.tree(nums, mid + 1, right)
+        root = TreeNode(nums[mid])
+        root.left = left
+        root.right = right
+        return root
+    
     def sortedArrayToBST(self, nums):
-        n = len(nums)
-        def Tree(node, left, right):
-            if left > right:
-                return None
-            mid = (left + right) // 2
-            leftNode = Tree(nums, left, mid - 1)
-            rightNode = Tree(nums, mid + 1, right)
-            treeNode = TreeNode(nums[mid])
-            treeNode.left = leftNode
-            treeNode.right = rightNode
-            return treeNode
-        return Tree(nums, 0, n - 1)
+        return self.tree(nums, 0, len(nums) - 1)

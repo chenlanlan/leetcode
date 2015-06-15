@@ -23,20 +23,18 @@ class Solution:
 
     
     
-    def isValidBST(self, root): #中序遍历法
+    def inOrderTraversal(self, root, List):#中序遍历法
         if root == None:
-            return True
-        if root.left == None and root.right == None:
+            return
+        self.inOrderTraversal(root.left, List)
+        List.append(root.val)
+        self.inOrderTraversal(root.right, List)
+    
+    def isValidBST(self, root):
+        if root == None or root.left == None and root.right == None:
             return True
         List = []
-        def inOrderTraversal(root):
-            if root == None:
-                return
-            inOrderTraversal(root.left)
-            List.append(root.val)
-            inOrderTraversal(root.right)
-            
-        inOrderTraversal(root)
+        self.inOrderTraversal(root, List)
         for i in range(1, len(List)):
             if List[i] <= List[i - 1]:
                 return False
