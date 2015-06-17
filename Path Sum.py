@@ -12,14 +12,18 @@ class Solution:
     # @param sum, an integer
     # @return a boolean
     def hasPathSum(self, root, sum):
-        def PathSum(root, sum, val):
-            if root == None:
+        if root ==  None:
+            return False
+        temp = 0
+        return self.pathSum(root, sum, temp)
+    
+    def pathSum(self, root, sum, temp):
+        if not root:
+            return False
+        temp += root.val
+        if not root.right and not root.left:
+            if temp == sum:
+                return True
+            else:
                 return False
-            val += root.val
-            if root.left == None and root.right == None:
-                if sum == val:
-                    return True
-                else:
-                    return False
-            return PathSum(root.left, sum, val) or PathSum(root.right, sum, val)
-        return PathSum(root, sum, 0)
+        return self.pathSum(root.left, sum, temp) or self.pathSum(root.right, sum, temp)
