@@ -12,16 +12,18 @@ class Solution:
     # @return an integer
     def __init__(self):
         self.sum = 0
+
     def sumNumbers(self, root):
-        def subsum(root, val):
-            if root.left == None and root.right == None:
-                self.sum += val * 10 + root.val
-            if root.left != None:
-                subsum(root.left, val * 10 + root.val)
-            if root.right != None:
-                subsum(root.right, val *10 + root.val)
-        if root == None:
+        if not root:
             return 0
-        subsum(root, 0)
+        self.subSum(root, 0)
         return self.sum
+
+    def subSum(self, root, val):
+        if not root.left and not root.right:
+            self.sum += val * 10 + root.val
+        if root.left:
+            self.subSum(root.left, val * 10 + root.val)
+        if root.right:
+            self.subSum(root.right, val * 10 + root.val)
         
