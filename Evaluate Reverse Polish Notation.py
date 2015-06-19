@@ -3,29 +3,36 @@
 class Solution:
     # @param {string[]} tokens
     # @return {integer}
+    def operand(self, s):
+        return s == '+' or s == '-' or s == '*' or s == '/'
+    
+    def calculate(self, s, num1, num2):
+        if s == '+':
+            return num1 + num2
+        elif s == '-':
+            return num1 - num2
+        elif s == '*':
+            return num1 * num2
+        elif s == '/':
+            if num1 * num2 < 0:
+                return -((-num1) / num2 )
+            return num1 / num2
+
     def evalRPN(self, tokens):
-        if len(tokens) == 0:
-            return 0
+        s = 0
         stack = []
-        def isOpenrand(s):
-            return s == '+' or s == '-' or s == '*' or s == '/'
-        for token in tokens:
-            if isOpenrand(token) == False:
-                stack.append(int(token))
-                continue
-            if len(stack) < 2:
-                return 0
-            num2 = stack.pop()
-            num1 = stack.pop()
-            if token == '+':
-                stack.append(num1 + num2)
-            elif token == '-':
-                stack.append(num1 - num2)
-            elif token == '*':
-                stack.append(num1 * num2)
-            elif token == '/':
-                stack.append(int(num1 / num2))
+        for i in range(len(tokens)):
+            if not self.operand(tokens[i]):
+                stack.append(int(tokens[i]))
+            else:
+                if len(stack) < 2:
+                    return 0
+                num2 = stack.pop()
+                num1 = stack.pop()
+                s = self.calculate(tokens[i], num1, num2)
+                stack.append(s)
         return stack.pop()
+
 
 test = Solution()
 print(test.evalRPN(["10","6","9","3","+","-11","*","/","*","17","+","5","+"]))

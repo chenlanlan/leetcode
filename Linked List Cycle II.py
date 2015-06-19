@@ -9,22 +9,18 @@
 class Solution:
     # @param head, a ListNode
     # @return a boolean
-    def hasCycle(self, head):
+    def detectCycle(self, head):
         if head == None:
             return None
-        fast = ListNode(0)
-        slow = ListNode(0)
-        fast = head
-        slow = head
-        while fast != None and fast.next != None:
+        fast = slow = head
+        while fast and fast.next:
             fast = fast.next.next
             slow = slow.next
             if fast == slow:
                 slow = head
                 while fast != slow:
-                    slow = slow.next
                     fast = fast.next
+                    slow = slow.next
                 return slow
-          
-        return None
+    return None
             

@@ -5,12 +5,15 @@ class Solution:
     # @return {integer[]}
     def __init__(self):
         self.res = []
+    
+    def traversal(self, root):
+        if root == None:
+            return self.res
+        self.traversal(root.left)
+        self.traversal(root.right)
+        self.res.append(root.val)
+    
     def postorderTraversal(self, root):
-        def traversal(root):
-            if root == None:
-                return
-            self.postorderTraversal(root.left)
-            self.postorderTraversal(root.right)
-            self.res.append(root.val)
-        traversal(root)
+        self.traversal(root)
+        
         return self.res
