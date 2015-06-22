@@ -5,17 +5,15 @@ class Solution:
     # @param {string} s
     # @return {string[]}    
     def findRepeatedDnaSequences(self, s):
-        n = len(s)
-        sequenceLength = 10
-        count = collections.Counter()
+        d = {}
         res = []
-        for i in range(n - 9):
-            if count[s[i : i + sequenceLength]] == 1:
-                res.append(s[i : i + sequenceLength])
-                count.update({s[i : i + sequenceLength]: 1})
+        for i in range(len(s) - 9):
+            if s[i: i + 10] in d:
+                if s[i: i + 10] not in res:
+                    res.append(s[i: i + 10])
             else:
-                count.update({s[i : i + sequenceLength]: 1})
-        return res
+                d[s[i: i + 10]] = 1
+    return res
 
 test = Solution()
 print(test.findRepeatedDnaSequences('AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT'))

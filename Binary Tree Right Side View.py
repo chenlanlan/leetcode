@@ -11,27 +11,26 @@ class Solution:
     # @param {TreeNode} root
     # @return {integer[]}
     def rightSideView(self, root):
-        ans = []
-        if root == None:
-            return ans
-        queue = []
-        queue.append(root)
+        res = []
+        if not root:
+            return res
         curLevel = 1
         nextLevel = 0
-        while queue != []:
+        queue = [root]
+        while queue:
             cur = queue[0]
             del queue[0]
             curLevel -= 1
             if cur.left:
-                queue.append()
+                queue.append(cur.left)
                 nextLevel += 1
             if cur.right:
-                queue.append()
+                queue.append(cur.right)
                 nextLevel += 1
             if curLevel == 0:
-                ans.append(cur.val)
+                res.append(cur.val)
                 curLevel = nextLevel
                 nextLevel = 0
-        return ans
+        return res
 
             

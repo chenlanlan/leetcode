@@ -57,6 +57,11 @@ class Solution:
         else:
             return result
 
+    def largestNumber2(self, nums):
+        strs = [str(x) for x in nums]
+        strs.sort(cmp = lambda x, y: cmp(y + x, x + y))
+        return ''.join(strs).lstrip('0') or '0'
+
 test = Solution()
 print(test.largestNumber([1, 2, 1]))
             
