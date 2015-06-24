@@ -23,4 +23,16 @@ class Solution:
                     slow = slow.next
                 return slow
     return None
-            
+
+def detectCycle(self, head):
+    if head == None:
+        return None
+        table = {}
+        while head:
+            if head not in table:
+                table[head] = True
+                head = head.next
+            elif table[head]:
+                return head
+    return None
+
