@@ -2,7 +2,7 @@ class Solution:
     # @param {integer} numCourses
     # @param {integer[][]} prerequisites
     # @return {boolean}
-    def canFinish(self, numCourses, prerequisites):
+    def findOrder(self, numCourses, prerequisites):
         res = []
         degree = [0] * numCourses
         parents = [[] for x in range(numCourses)]
@@ -23,4 +23,11 @@ class Solution:
                     flag = True
             for x in removeList:
                 courses.remove(x)
-        return len(courses) == 0
+        if len(courses) == 0:
+            res.reverse()
+            return res
+        else:
+            return []
+
+test = Solution()
+print(test.canFinish(4, [[1,0],[2,0],[3,1],[3,2]]))
