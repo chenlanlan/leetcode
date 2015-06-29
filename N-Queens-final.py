@@ -32,7 +32,6 @@ class Solution:
                     
     def totalNQueens(self, n):
         # output frame
-        global res    
         board = [-1 for i in range(n)]
         self.solve(n, 0, board)
         return self.final
